@@ -24,8 +24,11 @@ async def on_member_join(member):
 async def on_message(message):
     if ('<@972208992283660348>' in message.content) and ('hello' in message.content):
         await message.reply("Hello, How can I help you?", mention_author = True)
-        
-        
+    elif 'celebrate' in message.content.lower():
+        member = message.author
+        await member.create_dm()
+        await member.dm_channel.send(f'Happy Birthday {member.name}🎉🎉')
+  
 
 #async def on_message(message):
 #    if "botA01 hello" in message.content.lower():
